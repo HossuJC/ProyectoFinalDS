@@ -3,6 +3,9 @@ package application;
 import java.util.ArrayList;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,13 +20,15 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-public class main_scene extends Application{
+public class main_scene extends Application implements EventHandler<ActionEvent>{
 
 	Button admin;
 	Button vendedor;
 	Button client;
+	Button diseño;
 	VBox panel1;
-	//BorderPane bp;
+	BorderPane bp;
+	
 	@Override
 	public void start(Stage arg0) throws Exception {
 		// TODO Auto-generated method stub
@@ -39,6 +44,9 @@ public class main_scene extends Application{
 		ImageView im = new ImageView(i);
 		admin.setText("ADMINISTRADOR");
 		client.setText("CLIENTE");
+		client.setOnAction(this);
+		admin.setOnAction(this);
+		vendedor.setOnAction(this);
 		vendedor.setText("VENDEDOR");
 		ArrayList<Button> buts = new ArrayList<Button>();
 		buts.add(admin); buts.add(client); buts.add(vendedor);
@@ -73,6 +81,19 @@ public class main_scene extends Application{
 		bp.setLeft(func);
 		bp.setCenter(im);
 		return bp;
+	}
+	@Override
+	public void handle(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==client) {
+			System.out.println("Hola soy el cliente");
+		}
+		else if(e.getSource()==vendedor) {
+			System.out.println("Soy el vendedor");
+		}
+		else if(e.getSource()==admin) {
+			System.out.println("Soy el admin");
+		}
 	}
 
 }

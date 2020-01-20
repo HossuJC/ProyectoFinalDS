@@ -31,6 +31,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			
 			ms = new main_scene();
 			bp = ms.mainScene();
 			Scene scene = new Scene(bp);
@@ -38,6 +39,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			primaryStage.setTitle("MyHome");
+			
 			
 			
 			

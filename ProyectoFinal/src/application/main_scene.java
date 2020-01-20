@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -28,6 +29,9 @@ public class main_scene extends Application implements EventHandler<ActionEvent>
 	Button diseño;
 	VBox panel1;
 	BorderPane bp;
+	login_vendedor lv;
+	login_cliente lc;
+	login_admin la;
 	
 	@Override
 	public void start(Stage arg0) throws Exception {
@@ -44,9 +48,7 @@ public class main_scene extends Application implements EventHandler<ActionEvent>
 		ImageView im = new ImageView(i);
 		admin.setText("ADMINISTRADOR");
 		client.setText("CLIENTE");
-		client.setOnAction(this);
-		admin.setOnAction(this);
-		vendedor.setOnAction(this);
+		
 		vendedor.setText("VENDEDOR");
 		ArrayList<Button> buts = new ArrayList<Button>();
 		buts.add(admin); buts.add(client); buts.add(vendedor);
@@ -80,19 +82,46 @@ public class main_scene extends Application implements EventHandler<ActionEvent>
 		func.getChildren().add(diseño);
 		bp.setLeft(func);
 		bp.setCenter(im);
+		client.setOnAction(this);
+		admin.setOnAction(this);
+		vendedor.setOnAction(this);
 		return bp;
 	}
 	@Override
-	public void handle(ActionEvent e) {
+	public void handle(ActionEvent ev) {
+		Stage window = new Stage();
+		Scene scene1;
 		// TODO Auto-generated method stub
-		if(e.getSource()==client) {
+		if(ev.getSource()==client) {
 			System.out.println("Hola soy el cliente");
+			lc = new login_cliente();
+			GridPane gp = lc.login();
+			
+			scene1 = new Scene(gp,500,500);
+			window.setScene(scene1);
+			window.show();
+			
 		}
-		else if(e.getSource()==vendedor) {
+		else if(ev.getSource()==vendedor) {
 			System.out.println("Soy el vendedor");
+			lv = new login_vendedor();
+			GridPane gp = lv.login();
+			
+			scene1 = new Scene(gp,500,500);
+			window.setScene(scene1);
+			window.show();
+			
+			
 		}
-		else if(e.getSource()==admin) {
+		else if(ev.getSource()==admin) {
 			System.out.println("Soy el admin");
+			la = new login_admin();
+			GridPane gp = la.login();
+			
+			scene1 = new Scene(gp,500,500);
+			window.setScene(scene1);
+			window.show();
+			
 		}
 	}
 

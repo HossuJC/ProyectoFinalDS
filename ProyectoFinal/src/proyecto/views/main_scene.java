@@ -23,7 +23,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-public class main_scene {
+public class main_scene implements EventHandler<ActionEvent>{
 
 	Button admin;
 	Button vendedor;
@@ -79,9 +79,9 @@ public class main_scene {
 		func.getChildren().add(diseño);
 		bp.setLeft(func);
 		bp.setCenter(im);
-		/*client.setOnAction(this);
+		client.setOnAction(this);
 		admin.setOnAction(this);
-		vendedor.setOnAction(this);*/
+		vendedor.setOnAction(this);
 		diseño.setOnAction(new EventHandler<ActionEvent>(){
 
 			@Override
@@ -100,7 +100,7 @@ public class main_scene {
 	public Pane getRoot() {
         return root;
     }
-	/*@Override
+	@Override
 	public void handle(ActionEvent ev) {
 		Stage window = new Stage();
 		Scene scene1;
@@ -136,7 +136,7 @@ public class main_scene {
 			window.show();
 		}
 		}
-*/
+
 	
 	static void changeScene(Event e, Scene sc) {
 		Stage window =(Stage)((Node) e.getSource()).getScene().getWindow();

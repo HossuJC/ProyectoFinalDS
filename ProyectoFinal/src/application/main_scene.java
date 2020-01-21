@@ -26,7 +26,7 @@ public class main_scene extends Application implements EventHandler<ActionEvent>
 	Button admin;
 	Button vendedor;
 	Button client;
-	Button diseño;
+	Button diseÃ±o;
 	VBox panel1;
 	BorderPane bp;
 	login_vendedor lv;
@@ -44,7 +44,7 @@ public class main_scene extends Application implements EventHandler<ActionEvent>
 		admin= new Button();
 		vendedor = new Button();
 		client = new Button();
-		Image i = new Image("application/casadiseño.png");
+		Image i = new Image("application/casadiseÃ±o.png");
 		ImageView im = new ImageView(i);
 		admin.setText("ADMINISTRADOR");
 		client.setText("CLIENTE");
@@ -55,7 +55,7 @@ public class main_scene extends Application implements EventHandler<ActionEvent>
 		panel1 = new VBox();
 		panel1.setPadding(new Insets(10));
 		panel1.setSpacing(10);
-		Text titulo = new Text("Inicio Sesión");
+		Text titulo = new Text("Inicio Sesiï¿½n");
 		titulo.setFont(Font.font("Arial", FontWeight.NORMAL,20));
 		panel1.getChildren().add(titulo);
 		for (Button v: buts) {
@@ -78,13 +78,14 @@ public class main_scene extends Application implements EventHandler<ActionEvent>
 		func.setPadding(new Insets(15,25,15,25));
 		func.setSpacing(10);
 		func.getChildren().add(titulo2);
-		Button diseño = new Button("Diseñar Casa");
-		func.getChildren().add(diseño);
+		Button diseÃ±o = new Button("Diseï¿½ar Casa");
+		func.getChildren().add(diseÃ±o);
 		bp.setLeft(func);
 		bp.setCenter(im);
 		client.setOnAction(this);
 		admin.setOnAction(this);
 		vendedor.setOnAction(this);
+                
 		return bp;
 	}
 	@Override

@@ -20,7 +20,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class vista_diseño_casa {
+public class vista_diseÃ±o_casa {
 	Pane root = new Pane();
 	Button cielo = new Button("Casa Cielo");
 	Button paraiso = new Button("Casa Paraiso");
@@ -31,20 +31,22 @@ public class vista_diseño_casa {
 	BorderPane bp = new BorderPane();
 	
 
-	vista_diseño_casa(){
+	vista_diseÃ±o_casa(){
 		hb.setPadding(new Insets(35, 32, 35, 32));
-		Text titulo1 = new Text("Diseño de Casa");
+		Text titulo1 = new Text("DiseÃ±o de Casa");
 		titulo1.setFont(Font.font("Arial", FontWeight.NORMAL,30));
 		Text titulo = new Text("Escoja una casa:");
 		titulo.setFont(Font.font("Arial", FontWeight.NORMAL,20));
 		vb.getChildren().add(titulo);
-		hb.getChildren().add(cielo);
+		
+                hb.getChildren().add(cielo);
 		hb.getChildren().add(paraiso);
 		hb.getChildren().add(oasis);
 		ArrayList<Button> buts = new ArrayList<Button>();
 		buts.add(cielo);buts.add(paraiso);buts.add(oasis);
 		for(Button a: buts) {
 			HBox.setMargin(a, new Insets(0,0,0,25));
+                        
 		}
 		VBox.setMargin(titulo, new Insets(20,0,0,20));
 		VBox.setMargin(hb, new Insets(20,0,0,0));
@@ -67,6 +69,45 @@ public class vista_diseño_casa {
 			}
 			
 		});
+                
+                cielo.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent ev) {
+				
+				Scene sc = new Scene(new vista_caracteristicas_casa("Modelo base : Cielo").getRoot(),600,600);
+				
+				changeatras(ev,sc);
+				
+			}
+			
+		});
+                paraiso.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent ev) {
+				
+				Scene sc = new Scene(new vista_caracteristicas_casa("Modelo base : Paraiso").getRoot(),600,600);
+				
+				changeatras(ev,sc);
+				
+			}
+			
+		});
+                oasis.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent ev) {
+				
+				Scene sc = new Scene(new vista_caracteristicas_casa("Modelo base : Oasis").getRoot(),600,600);
+				
+				changeatras(ev,sc);
+				
+			}
+			
+		});
+                
+                
 		bp.setTop(titulo1);
 		bp.setCenter(vb);
 		bp.setRight(v);

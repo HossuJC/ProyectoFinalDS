@@ -1,7 +1,7 @@
 package clases;
 
 public class Persona {
-	String nombre, apellidos, cedula, pasaporte, correo, direccion, empresa, telefono, civil;
+	protected String nombre, apellidos, cedula, pasaporte, correo, direccion, empresa, telefono, civil;
 
 	public Persona(String nombre, String apellidos, String cedula, String pasaporte, String correo, String direccion,
 			String empresa, String telefono, String civil) {

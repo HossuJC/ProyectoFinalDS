@@ -1,12 +1,12 @@
 package clases;
 
-public class Casa {
+public class Casa implements I_Casa{
 	
 	int metrosc, numplantas, numbaños, numhab;
-	String orientacion, tam_patio;
+	String orientacion, tam_patio, id;
 	boolean esquinera;
 	public Casa(int metrosc, int numplantas, int numbaños, int numhab, String orientacion, String tam_patio,
-			boolean esquinera) {
+			boolean esquinera, String id) {
 		super();
 		this.metrosc = metrosc;
 		this.numplantas = numplantas;
@@ -15,6 +15,13 @@ public class Casa {
 		this.orientacion = orientacion;
 		this.tam_patio = tam_patio;
 		this.esquinera = esquinera;
+		this.id=id;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public int getMetrosc() {
 		return metrosc;
@@ -57,6 +64,11 @@ public class Casa {
 	}
 	public void setEsquinera(boolean esquinera) {
 		this.esquinera = esquinera;
+	}
+	@Override
+	public void agregarAcabado() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

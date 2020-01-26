@@ -1,8 +1,11 @@
 package clases;
 
+import java.util.ArrayList;
+
 public class Cliente extends Persona{
 	String cargo;
 	int hijos;
+	ArrayList<Casa> casas;
 
 	public Cliente(String nombre, String apellidos, String cedula, String pasaporte, String correo, String direccion,
 			String empresa, String telefono, String civil, String cargo, int hijos) {
@@ -29,5 +32,8 @@ public class Cliente extends Persona{
 		this.hijos = hijos;
 	}
 	
+	ArrayList<Casa> getCasas(){
+		return casas;
+	}
 
 }

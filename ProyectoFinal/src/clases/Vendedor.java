@@ -20,12 +20,14 @@ public class Vendedor extends Empleado{
 	
 	public ArrayList<Casa> verCasas(Cliente c){
 		
-		
+		return c.getCasas();
 	}
 	
 	public void InicioSesion() {
 		
 	}
 	
-	
+	public void GenerarReporte() {
+		
+	}
 }

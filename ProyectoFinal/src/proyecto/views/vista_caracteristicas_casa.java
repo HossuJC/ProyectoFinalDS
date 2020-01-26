@@ -28,7 +28,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import static proyecto.views.vista_diseño_casa.changeatras;
+import static proyecto.views.vista_diseno_casa.changeatras;
 
 /**
  *
@@ -49,7 +49,7 @@ public class vista_caracteristicas_casa {
     ComboBox piso;
     ComboBox griferia;
     ComboBox iluminacion;
-    ComboBox baños;//booleanos
+    ComboBox banos;//booleanos
     ComboBox aislamiento;//booleanos
            
     
@@ -72,8 +72,8 @@ public class vista_caracteristicas_casa {
         ObservableList<String> boleanos = FXCollections.observableArrayList();
         boleanos.addAll("Sí","No");
         
-        this.baños=new ComboBox(boleanos);
-        baños.setMinWidth(200);
+        this.banos=new ComboBox(boleanos);
+        banos.setMinWidth(200);
         this.aislamiento=new ComboBox(boleanos);
         aislamiento.setMinWidth(200);
         
@@ -104,7 +104,7 @@ public class vista_caracteristicas_casa {
 			@Override
 			public void handle(ActionEvent ev) {
 				
-				Scene sc = new Scene(new vista_diseño_casa().getRoot(),600,600);
+				Scene sc = new Scene(new vista_diseno_casa().getRoot(),600,600);
 				
 				changeatras(ev,sc);
 				
@@ -116,9 +116,9 @@ public class vista_caracteristicas_casa {
         labels.getChildren().addAll(l1,l2,l3,l4,l5);
         labels.setSpacing(8);
         
-        cbs.getChildren().addAll(piso,griferia,iluminacion,baños,aislamiento);
+        cbs.getChildren().addAll(piso,griferia,iluminacion,banos,aislamiento);
         ArrayList<ComboBox> c = new ArrayList<ComboBox>();
-	c.add(piso);c.add(griferia);c.add(iluminacion);c.add(baños);c.add(aislamiento);
+	c.add(piso);c.add(griferia);c.add(iluminacion);c.add(banos);c.add(aislamiento);
         for(ComboBox co: c) {
 			VBox.setMargin(co, new Insets(0,0,0,25));
                        
@@ -217,12 +217,12 @@ public class vista_caracteristicas_casa {
         this.iluminacion = iluminacion;
     }
 
-    public ComboBox getBaños() {
-        return baños;
+    public ComboBox getBanos() {
+        return banos;
     }
 
-    public void setBaños(ComboBox baños) {
-        this.baños = baños;
+    public void setBanos(ComboBox banos) {
+        this.banos = banos;
     }
 
     public ComboBox getAislamiento() {

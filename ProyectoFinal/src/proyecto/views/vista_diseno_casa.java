@@ -20,7 +20,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class vista_diseño_casa {
+public class vista_diseno_casa {
 	Pane root = new Pane();
 	Button cielo = new Button("Casa Cielo");
 	Button paraiso = new Button("Casa Paraiso");
@@ -31,9 +31,9 @@ public class vista_diseño_casa {
 	BorderPane bp = new BorderPane();
 	
 
-	vista_diseño_casa(){
+	vista_diseno_casa(){
 		hb.setPadding(new Insets(35, 32, 35, 32));
-		Text titulo1 = new Text("Diseño de Casa");
+		Text titulo1 = new Text("Dise�o de Casa");
 		titulo1.setFont(Font.font("Arial", FontWeight.NORMAL,30));
 		Text titulo = new Text("Escoja una casa:");
 		titulo.setFont(Font.font("Arial", FontWeight.NORMAL,20));

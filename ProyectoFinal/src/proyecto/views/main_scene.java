@@ -23,17 +23,15 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-public class main_scene implements EventHandler<ActionEvent>{
+public class main_scene {
 
 	Button admin;
 	Button vendedor;
 	Button client;
-	Button diseño;
+	Button diseno;
 	VBox panel1;
 	BorderPane bp;
-	login_vendedor lv;
-	login_cliente lc;
-	login_admin la;
+	login lv;
 	Pane root = new Pane();
 	
 	public main_scene() {
@@ -41,11 +39,10 @@ public class main_scene implements EventHandler<ActionEvent>{
 		admin= new Button();
 		vendedor = new Button();
 		client = new Button();
-		Image i = new Image("proyecto/views/casadiseño.png");
+		Image i = new Image("proyecto/views/casadiseno.png");
 		ImageView im = new ImageView(i);
 		admin.setText("ADMINISTRADOR");
 		client.setText("CLIENTE");
-		
 		vendedor.setText("VENDEDOR");
 		ArrayList<Button> buts = new ArrayList<Button>();
 		buts.add(admin); buts.add(client); buts.add(vendedor);
@@ -75,32 +72,72 @@ public class main_scene implements EventHandler<ActionEvent>{
 		func.setPadding(new Insets(15,25,15,25));
 		func.setSpacing(10);
 		func.getChildren().add(titulo2);
-		Button diseño = new Button("Diseñar Casa");
-		func.getChildren().add(diseño);
+		Button diseno = new Button("Dise�ar Casa");
+		func.getChildren().add(diseno);
 		bp.setLeft(func);
 		bp.setCenter(im);
-		client.setOnAction(this);
-		admin.setOnAction(this);
-		vendedor.setOnAction(this);
-		diseño.setOnAction(new EventHandler<ActionEvent>(){
+		diseno.setOnAction(new EventHandler<ActionEvent>(){
 
 			@Override
 			public void handle(ActionEvent ev) {
 				
-				Scene sc = new Scene(new vista_diseño_casa().getRoot(),600,600);
+				Scene sc = new Scene(new vista_diseno_casa().getRoot(),600,600);
 				
 				changeScene(ev,sc);
 				
 			}
 			
 		});
+		vendedor.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				Scene sc = new Scene(new login().getroot(),500,500);
+				Stage st = new Stage();
+				st.setScene(sc);
+				st.showAndWait();
+				
+			}
+			
+			
+		});
+		client.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				Scene sc = new Scene(new login().getroot(),500,500);
+				Stage st = new Stage();
+				st.setScene(sc);
+				st.showAndWait();
+				
+			}
+			
+			
+		});
+		admin.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				Scene sc = new Scene(new login().getroot(),500,500);
+				Stage st = new Stage();
+				st.setScene(sc);
+				st.showAndWait();
+				
+			}
+			
+			
+		});
 		root.getChildren().add(bp);
 	}
 	
-	public Pane getRoot() {
+	
+		public Pane getRoot() {
         return root;
     }
-	@Override
+	/*@Override
 	public void handle(ActionEvent ev) {
 		Stage window = new Stage();
 		Scene scene1;
@@ -135,10 +172,10 @@ public class main_scene implements EventHandler<ActionEvent>{
 			window.setScene(scene1);
 			window.show();
 		}
-		}
+		}*/
 
 	
-	static void changeScene(Event e, Scene sc) {
+	static void changeScene(Event e, Scene sc){
 		Stage window =(Stage)((Node) e.getSource()).getScene().getWindow();
 		window.setScene(sc);
 	}

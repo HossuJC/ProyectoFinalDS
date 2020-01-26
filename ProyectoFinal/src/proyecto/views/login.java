@@ -7,16 +7,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class login_cliente {
+public class login {
 
-	
-	
-	public GridPane login() {
+	Pane root = new Pane();
+	public login() {
 		GridPane log = new GridPane();
 		log.setAlignment(Pos.CENTER);
 		log.setHgap(10);
@@ -35,8 +35,13 @@ public class login_cliente {
 		PasswordField pss= new PasswordField();
 		pss.setPromptText("password");
 		log.add(pss, 1, 2);
-		return log;
+		root.getChildren().add(log);
 		
+		
+	}
+	
+	public Pane getroot() {
+		return root;
 	}
 
 }

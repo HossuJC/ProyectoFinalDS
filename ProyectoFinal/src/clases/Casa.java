@@ -2,15 +2,15 @@ package clases;
 
 public class Casa implements I_Casa{
 	
-	int metrosc, numplantas, numbaños, numhab;
+	int metrosc, numplantas, numbanos, numhab;
 	String orientacion, tam_patio, id;
 	boolean esquinera;
-	public Casa(int metrosc, int numplantas, int numbaños, int numhab, String orientacion, String tam_patio,
+	public Casa(int metrosc, int numplantas, int numbanos, int numhab, String orientacion, String tam_patio,
 			boolean esquinera, String id) {
 		super();
 		this.metrosc = metrosc;
 		this.numplantas = numplantas;
-		this.numbaños = numbaños;
+		this.numbanos = numbanos;
 		this.numhab = numhab;
 		this.orientacion = orientacion;
 		this.tam_patio = tam_patio;
@@ -35,11 +35,11 @@ public class Casa implements I_Casa{
 	public void setNumplantas(int numplantas) {
 		this.numplantas = numplantas;
 	}
-	public int getNumbaños() {
-		return numbaños;
+	public int getNumbanos() {
+		return numbanos;
 	}
-	public void setNumbaños(int numbaños) {
-		this.numbaños = numbaños;
+	public void setNumbanos(int numbanos) {
+		this.numbanos = numbanos;
 	}
 	public int getNumhab() {
 		return numhab;

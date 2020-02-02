@@ -28,7 +28,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import static proyecto.views.vista_diseno_casa.changeatras;
+
 
 /**
  *
@@ -111,7 +111,18 @@ public class vista_caracteristicas_casa {
 			}
 			
 	});
-        
+        guardar.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent ev) {
+				
+				Scene sc = new Scene(new MenuCliente().getRoot(),600,600);
+				
+				changeatras(ev,sc);
+				
+			}
+			
+	});
         
         labels.getChildren().addAll(l1,l2,l3,l4,l5);
         labels.setSpacing(8);
@@ -272,7 +283,10 @@ public class vista_caracteristicas_casa {
     public void setBp(BorderPane bp) {
         this.bp = bp;
     }
-    
+    static void changeatras(Event e, Scene sc) {
+		Stage window =(Stage)((Node) e.getSource()).getScene().getWindow();
+		window.setScene(sc);
+	}
     
     
     

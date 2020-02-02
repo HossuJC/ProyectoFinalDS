@@ -23,9 +23,13 @@ import javafx.stage.Stage;
 public class vista_diseno_casa {
 	Pane root = new Pane();
 	Button cielo = new Button("Casa Cielo");
+        final Text infoCielo=new Text("Modelo Grande: 4 Habitaciones, 200 m2, 3 plantas, Patio Espacioso, 2 Baños");
 	Button paraiso = new Button("Casa Paraiso");
+        Text infoParaiso= new Text("Modelo Mediano: 3 Habitaciones, 150 m2, 2 plantas, Patio mediano, 1 Baños");
 	Button oasis = new Button("Casa Oasis");
+        Text infoOasis=new Text("Modelo Pequeño: 2 Habitaciones, 120 m2, 2 plantas, Patio pequeño, 1 Baños");
 	Button atras = new Button("Atras");
+        HBox info=new HBox();
 	HBox hb = new HBox();
 	VBox vb = new VBox();
 	BorderPane bp = new BorderPane();
@@ -33,7 +37,7 @@ public class vista_diseno_casa {
 
 	vista_diseno_casa(){
 		hb.setPadding(new Insets(35, 32, 35, 32));
-		Text titulo1 = new Text("Dise�o de Casa");
+		Text titulo1 = new Text("Diseño de Casa");
 		titulo1.setFont(Font.font("Arial", FontWeight.NORMAL,30));
 		Text titulo = new Text("Escoja una casa:");
 		titulo.setFont(Font.font("Arial", FontWeight.NORMAL,20));
@@ -42,6 +46,7 @@ public class vista_diseno_casa {
                 hb.getChildren().add(cielo);
 		hb.getChildren().add(paraiso);
 		hb.getChildren().add(oasis);
+                
 		ArrayList<Button> buts = new ArrayList<Button>();
 		buts.add(cielo);buts.add(paraiso);buts.add(oasis);
 		for(Button a: buts) {
@@ -50,7 +55,11 @@ public class vista_diseno_casa {
 		}
 		VBox.setMargin(titulo, new Insets(20,0,0,20));
 		VBox.setMargin(hb, new Insets(20,0,0,0));
-		vb.getChildren().add(hb);
+                //infoCielo.maxWidth(100);
+                //infoParaiso.maxWidth(100);
+                //infoOasis.maxWidth(100);
+                //info.getChildren().addAll(infoCielo,infoParaiso,infoOasis);
+		vb.getChildren().addAll(hb);
 		VBox v= new VBox();
 		v.getChildren().add(atras);
 		v.setPadding(new Insets(20));

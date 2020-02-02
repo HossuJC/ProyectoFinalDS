@@ -30,7 +30,7 @@ public class login {
 		TextField usname = new TextField();
 		usname.setPromptText("usuario");
 		log.add(usname, 1, 1);
-		Label pass = new Label("contraseña:");
+		Label pass = new Label("contraseÃ±a:");
 		log.add(pass, 0, 2);
 		PasswordField pss= new PasswordField();
 		pss.setPromptText("password");
@@ -43,5 +43,6 @@ public class login {
 	public Pane getroot() {
 		return root;
 	}
+        
 
 }

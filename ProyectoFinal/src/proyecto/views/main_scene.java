@@ -72,7 +72,7 @@ public class main_scene {
 		func.setPadding(new Insets(15,25,15,25));
 		func.setSpacing(10);
 		func.getChildren().add(titulo2);
-		Button diseno = new Button("Diseñar Casa");
+		Button diseno = new Button("Diseï¿½ar Casa");
 		func.getChildren().add(diseno);
 		bp.setLeft(func);
 		bp.setCenter(im);
@@ -93,11 +93,12 @@ public class main_scene {
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				Scene sc = new Scene(new login().getroot(),500,500);
-				Stage st = new Stage();
+				Scene sc = new Scene(new login("Vendedor").getroot(),500,500);
+				/*Stage st = new Stage();
 				st.setScene(sc);
 				st.showAndWait();
-				
+				*/
+                                changeScene(arg0,sc);
 			}
 			
 			
@@ -107,11 +108,12 @@ public class main_scene {
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				Scene sc = new Scene(new login().getroot(),500,500);
-				Stage st = new Stage();
+				Scene sc = new Scene(new login("Cliente").getroot(),500,500);
+				/*Stage st = new Stage();
 				st.setScene(sc);
 				st.showAndWait();
-				
+				*/
+                                changeScene(arg0,sc);
 			}
 			
 			
@@ -121,11 +123,12 @@ public class main_scene {
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				Scene sc = new Scene(new login().getroot(),500,500);
-				Stage st = new Stage();
+				Scene sc = new Scene(new login("Administrador").getroot(),500,500);
+				/*Stage st = new Stage();
 				st.setScene(sc);
 				st.showAndWait();
-				
+				*/
+                                changeScene(arg0,sc);
 			}
 			
 			

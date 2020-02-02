@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -40,8 +41,8 @@ public class CRUD_Cliente {
     HBox centro = new HBox();//2 columnas
     
     VBox tabla=new VBox();//tabla en este panel
-    VBox labels=new VBox(10);
-    VBox areas=new VBox(10);
+    VBox labels=new VBox(13);
+    VBox areas=new VBox(5);
     HBox centro1=new HBox(10);
     BorderPane bp = new BorderPane();
     
@@ -78,17 +79,18 @@ public class CRUD_Cliente {
         Label l11=new Label("Numero hijos: ");
         labels.getChildren().addAll(l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11);
         
-        TextArea nombre=new TextArea();
-        TextArea apellido=new TextArea();
-        TextArea cedula=new TextArea();
-        TextArea pasaporte=new TextArea();
-        TextArea correo=new TextArea();
-        TextArea direccion=new TextArea();
-        TextArea empresa=new TextArea();
-        TextArea telefono=new TextArea();
-        TextArea estado=new TextArea();
-        TextArea cargo=new TextArea();
-        TextArea hijos=new TextArea();
+        TextField nombre=new TextField();
+        TextField apellido=new TextField();
+        TextField cedula=new TextField();
+        TextField pasaporte=new TextField();
+        TextField correo=new TextField();
+        TextField direccion=new TextField();
+        TextField empresa=new TextField();
+        TextField telefono=new TextField();
+        TextField estado=new TextField();
+        TextField cargo=new TextField();
+        TextField hijos=new TextField();
+        
         areas.getChildren().addAll(nombre,apellido,cedula,pasaporte,correo,direccion,empresa,telefono,estado,cargo,hijos);
         
         
@@ -99,7 +101,7 @@ public class CRUD_Cliente {
 			@Override
 			public void handle(ActionEvent ev) {
 				
-				Scene sc = new Scene(new main_scene().getRoot());
+				Scene sc = new Scene(new MenuAdministrador().getRoot());
 				
 				changeatras(ev,sc);
 				
@@ -123,9 +125,9 @@ public class CRUD_Cliente {
 			@Override
 			public void handle(ActionEvent ev) {
                             //Toma los valores de los textAArea, actualiza la tabla y la base de datos
-				Scene sc = new Scene(new Cliente_Diseños().getRoot(),600,600);
+				//Scene sc = new Scene(new Cliente_Diseños().getRoot(),600,600);
 				
-				changeatras(ev,sc);
+				//changeatras(ev,sc);
 				
 			}
 			
@@ -142,9 +144,12 @@ public class CRUD_Cliente {
 			}
 			
 	});
-        TextArea busqueda=new TextArea();
+        TextField busqueda=new TextField();
+        busqueda.setAlignment(Pos.CENTER);
+        busqueda.setMaxWidth(200);
         HBox hbb=new HBox(10);
         hbb.getChildren().addAll(busqueda,buscar);
+        hbb.setAlignment(Pos.CENTER);
         centro.getChildren().addAll(v);
         
         bp.setTop(titulos);

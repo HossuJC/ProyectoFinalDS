@@ -76,7 +76,7 @@ public class MenuAdministrador {
 			@Override
 			public void handle(ActionEvent ev) {
 				//CRUD empleados
-				Scene sc = new Scene(new vista_diseno_casa().getRoot(),600,600);
+				Scene sc = new Scene(new CRUD_Empleado().getRoot(),600,600);
 				
 				changeatras(ev,sc);
 				
@@ -108,5 +108,69 @@ public class MenuAdministrador {
 		Stage window =(Stage)((Node) e.getSource()).getScene().getWindow();
 		window.setScene(sc);
 	}
+
+    public Pane getRoot() {
+        return root;
+    }
+
+    public void setRoot(Pane root) {
+        this.root = root;
+    }
+
+    public Label getL() {
+        return l;
+    }
+
+    public void setL(Label l) {
+        this.l = l;
+    }
+
+    public Button getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(Button empleados) {
+        this.empleados = empleados;
+    }
+
+    public Button getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(Button clientes) {
+        this.clientes = clientes;
+    }
+
+    public Button getAtras() {
+        return atras;
+    }
+
+    public void setAtras(Button atras) {
+        this.atras = atras;
+    }
+
+    public HBox getCentro() {
+        return centro;
+    }
+
+    public void setCentro(HBox centro) {
+        this.centro = centro;
+    }
+
+    public VBox getCbs() {
+        return cbs;
+    }
+
+    public void setCbs(VBox cbs) {
+        this.cbs = cbs;
+    }
+
+    public BorderPane getBp() {
+        return bp;
+    }
+
+    public void setBp(BorderPane bp) {
+        this.bp = bp;
+    }
     
 }

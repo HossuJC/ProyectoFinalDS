@@ -5,6 +5,13 @@
  */
 package proyecto.views;
 
+import Coneccion.conexion;
+import clases.Cliente;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -14,8 +21,11 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -23,6 +33,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -33,6 +45,7 @@ public class CRUD_Cliente {
     
     Label l= new Label("CRUD Cliente");
     //tabla de clientes
+    TableView<Cliente> Tablaclientes=new TableView<>();
     
     Button agregar = new Button("Agregar");
     Button modificar =new Button("Modificar");
@@ -90,9 +103,38 @@ public class CRUD_Cliente {
         TextField estado=new TextField();
         TextField cargo=new TextField();
         TextField hijos=new TextField();
+        ///Creo el ol y lo lleno
+        ObservableList<Cliente> clientesOL=FXCollections.observableArrayList(); 
+        llenar(conexion.getConexion(),clientesOL);
+        Tablaclientes.setItems(clientesOL);
+        //enlazamos columnas
+        TableColumn<Cliente,String> nombreC=new TableColumn<>();
+        TableColumn<Cliente,String> apellidoC=new TableColumn<>();
+        TableColumn<Cliente,String> cedulaC=new TableColumn<>();
+        TableColumn<Cliente,String> pasaporteC=new TableColumn<>();
+        TableColumn<Cliente,String> correoC=new TableColumn<>();
+        TableColumn<Cliente,String> direccionC=new TableColumn<>();
+        TableColumn<Cliente,String> empresaC=new TableColumn<>();
+        TableColumn<Cliente,String> telefonoC=new TableColumn<>();
+        TableColumn<Cliente,String> estadoC=new TableColumn<>();
+        TableColumn<Cliente,String> cargoC=new TableColumn<>();
+        TableColumn<Cliente,Integer> hijosC=new TableColumn<>();
+    
         
+        nombreC.setCellValueFactory(new PropertyValueFactory<Cliente,String>("nombre"));
+        apellidoC.setCellValueFactory(new PropertyValueFactory<Cliente,String>("apellido")); 
+        cedulaC.setCellValueFactory(new PropertyValueFactory<Cliente,String>("cedula")); 
+        pasaporteC.setCellValueFactory(new PropertyValueFactory<Cliente,String>("pasaporte"));
+        correoC.setCellValueFactory(new PropertyValueFactory<Cliente,String>("correo")); 
+        direccionC.setCellValueFactory(new PropertyValueFactory<Cliente,String>("direccion"));
+        empresaC.setCellValueFactory(new PropertyValueFactory<Cliente,String>("empresa")); 
+        telefonoC.setCellValueFactory(new PropertyValueFactory<Cliente,String>("telefono")); 
+        estadoC.setCellValueFactory(new PropertyValueFactory<Cliente,String>("estado")); 
+        
+        
+        ///
         areas.getChildren().addAll(nombre,apellido,cedula,pasaporte,correo,direccion,empresa,telefono,estado,cargo,hijos);
-        
+        tabla.getChildren().addAll(Tablaclientes);
         
         centro1.getChildren().addAll(tabla,labels,areas);
         //
@@ -163,7 +205,35 @@ public class CRUD_Cliente {
 		Stage window =(Stage)((Node) e.getSource()).getScene().getWindow();
 		window.setScene(sc);
 	}
-
+    
+    public static void llenar(Connection connection,ObservableList<Cliente> lista){
+        try {
+            Statement st=connection.createStatement();
+            ResultSet rs=st.executeQuery("SELECT Nombres, Apellidos, Cedula,Pasaporte,Correo,id_Direccion,Empresa,Numero,Estado_Civil,Cargo,Numero_Hijos From Cliente c,Persona p,Celular ce, Correo co,Direccion d,Trabajo t inner join c.id_Persona=p.Cedula inner join c.id_trabajo=t.id_Empresa inner join p.cedula=d.propietario inner join p.cedula=co.propietario inner join p.cedula=ce.propietario");//aqui queri
+            while(rs.next()){
+                lista.add(
+                        new Cliente(
+                                rs.getString("nombre"),
+                                rs.getString("apellido"),
+                                rs.getString("cedula"),
+                                rs.getString("pasaporte"),
+                                rs.getString("correo"),
+                                rs.getString("direccion"),
+                                rs.getString("empresa"),
+                                rs.getString("telefono"),
+                                rs.getString("estado civil"),
+                                rs.getString("cargo"),
+                                rs.getInt("hijos")
+                        )
+                );
+            }
+            
+            
+        } catch (Exception e) {
+            System.out.println("error"+e);
+        }
+        
+    }
     public Pane getRoot() {
         return root;
     }
